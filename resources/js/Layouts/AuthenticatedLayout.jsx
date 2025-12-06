@@ -48,7 +48,7 @@ export default function AuthenticatedLayout({ children }) {
 
                     {/* Dashboard */}
                     <div className="px-4 py-2 text-[13px] font-semibold text-gray-500 uppercase tracking-wide">
-                        Dashboard Utama
+                        Dashboard Umum
                     </div>
 
                     <div className="px-4">
