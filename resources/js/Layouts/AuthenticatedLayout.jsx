@@ -25,25 +25,22 @@ export default function AuthenticatedLayout({ children }) {
 
                 {/* ===== LOGO + PROFILE ===== */}
                 <div className="px-5 py-6 border-b bg-gradient-to-r from-blue-50 to-blue-100">
-                   {/* LOGO / ICON */}
-    <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-400 flex items-center justify-center rounded-xl shadow-md">
-        <HomeIcon className="w-6 h-6 text-white" />
-    </div>
+                    <div className="flex items-center gap-3">
 
-    {/* TEXT */}
-    <div className="flex flex-col">
-        <p className="text-sm font-semibold text-gray-900 tracking-wide">
-            {auth.user.name}
-        </p>
+                        {/* LOGO ICON */}
+                        <div className="w-12 h-12 bg-blue-600 flex items-center justify-center rounded-full">
+                            <HomeIcon className="w-7 h-7 text-white" />
+                        </div>
 
-        <div className="flex items-center gap-1">
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-            <p className="text-xs text-green-600 font-medium">
-                Online
-            </p>
-        </div>
-    </div>
-
+                        <div>
+                            <p className="text-sm font-semibold text-gray-800">
+                                {auth.user.name}
+                            </p>
+                            <p className="text-xs text-green-600 font-medium">
+                                ● Online
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
                 {/* ===== MENU ===== */}
