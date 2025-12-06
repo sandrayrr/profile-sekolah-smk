@@ -3,6 +3,32 @@ import { Head } from '@inertiajs/react';
 import { useEffect, useState } from "react";
 import { CalendarDays, Newspaper, Award, Images, ShoppingCart, Package, CreditCard } from "lucide-react";
 
+// === CHART JS ===
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend,
+} from "chart.js";
+
+import { Line, Bar } from "react-chartjs-2";
+
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
+);
+
 export default function Dashboard() {
 
     // === JAM REALTIME ===
@@ -27,6 +53,36 @@ export default function Dashboard() {
         month: "long",
         year: "numeric",
     });
+
+    // =========================
+    // DATA GRAFIK KUNJUNGAN
+    // =========================
+    const visitorData = {
+        labels: ["Sen", "Sel", "Rab", "Kam", "Jum", "Sab", "Min"],
+        datasets: [
+            {
+                label: "Pengunjung",
+                data: [120, 190, 170, 220, 260, 300, 280],
+                borderColor: "rgb(37, 99, 235)",
+                backgroundColor: "rgba(37, 99, 235, 0.2)",
+                tension: 0.4,
+            },
+        ],
+    };
+
+    // =========================
+    // DATA GRAFIK PENJUALAN
+    // =========================
+    const salesData = {
+        labels: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun"],
+        datasets: [
+            {
+                label: "Penjualan",
+                data: [12, 19, 15, 22, 28, 35],
+                backgroundColor: "rgba(16, 185, 129, 0.7)",
+            },
+        ],
+    };
 
     return (
         <AuthenticatedLayout>
@@ -68,17 +124,25 @@ export default function Dashboard() {
                 <StatCard icon={<CreditCard size={32} />} label="Transaksi Bulan Ini" value="Rp 12.4 Jt" />
             </div>
 
-            {/* GRAFIK */}
+            {/* ================= GRAFIK REAL ================= */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white rounded-3xl h-64 flex items-center justify-center 
-                    shadow-xl border border-indigo-100">
-                    Grafik Kunjungan Harian
+
+                {/* GRAFIK KUNJUNGAN */}
+                <div className="bg-white rounded-3xl p-6 shadow-xl border border-indigo-100">
+                    <h3 className="font-semibold text-gray-700 mb-4">
+                        Grafik Kunjungan Harian
+                    </h3>
+                    <Line data={visitorData} />
                 </div>
 
-                <div className="bg-white rounded-3xl h-64 flex items-center justify-center 
-                    shadow-xl border border-indigo-100">
-                    Grafik Penjualan Marketplace
+                {/* GRAFIK PENJUALAN */}
+                <div className="bg-white rounded-3xl p-6 shadow-xl border border-indigo-100">
+                    <h3 className="font-semibold text-gray-700 mb-4">
+                        Grafik Penjualan Marketplace
+                    </h3>
+                    <Bar data={salesData} />
                 </div>
+
             </div>
 
         </AuthenticatedLayout>
