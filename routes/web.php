@@ -30,3 +30,8 @@ Route::middleware('auth')->group(function () {
 Route::resource('slider', SliderController::class)->middleware('auth');
 
 require __DIR__.'/auth.php';
+
+Route::get('/beranda', function () {
+    return view('beranda.index');
+})->name('beranda.index');
+

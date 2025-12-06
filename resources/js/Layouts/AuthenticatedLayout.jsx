@@ -48,7 +48,7 @@ export default function AuthenticatedLayout({ children }) {
 
                     {/* Dashboard */}
                     <div className="px-4 py-2 text-[13px] font-semibold text-gray-500 uppercase tracking-wide">
-                        Dashboard Umum
+                        Dashboard Utama
                     </div>
 
                     <div className="px-4">
@@ -64,10 +64,11 @@ export default function AuthenticatedLayout({ children }) {
                             Manajemen Konten
                         </p>
                         <div className="mt-2 ml-4 space-y-1">
-                            <div className={itemClass}>
-                                <UserIcon className="w-5 h-5" />
-                                Beranda
-                            </div>
+                           <Link href={route('beranda.index')} className={itemClass}>
+    <UserIcon className="w-5 h-5" />
+    Beranda
+</Link>
+
                             <div className={itemClass}>
                                 <UsersIcon className="w-5 h-5" />
                                 Profil
