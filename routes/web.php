@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\BerandaController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -28,10 +29,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 Route::resource('slider', SliderController::class)->middleware('auth');
+Route::resource('beranda', BerandaController::class)->middleware('auth');
 
 require __DIR__.'/auth.php';
-
-Route::get('/beranda', function () {
-    return view('beranda.index');
-})->name('beranda.index');
-

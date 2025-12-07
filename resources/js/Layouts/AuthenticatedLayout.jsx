@@ -64,11 +64,14 @@ export default function AuthenticatedLayout({ children }) {
                             Manajemen Konten
                         </p>
                         <div className="mt-2 ml-4 space-y-1">
-                           <Link href={route('beranda.index')} className={itemClass}>
-    <UserIcon className="w-5 h-5" />
-    Beranda
-</Link>
-
+                             <div className={itemClass}>
+                                <UsersIcon className="w-5 h-5" />
+                                Profil
+                            </div>
+                            <Link href={route('beranda.index')} className={itemClass}>
+                                <HomeIcon className="w-5 h-5" />
+                                Beranda
+                            </Link>
                             <div className={itemClass}>
                                 <UsersIcon className="w-5 h-5" />
                                 Profil
