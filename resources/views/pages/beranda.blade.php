@@ -154,7 +154,11 @@ body {
             <div class="flex items-start gap-6 mt-4">
                 <img src="https://picsum.photos/300/300" class="w-40 h-40 rounded-full object-cover shadow" alt="Kepala Sekolah">
                 <div>
-                    <p class="text-gray-600 mt-2">Assalamu'alaikum Warahmatullahi Wabarakatuh. Selamat datang di website resmi SMK Dummy. Website ini kami hadirkan untuk memberikan informasi kegiatan, prestasi, dan perkembangan sekolah.</p>
+                    @if($beranda && $beranda->sambutan)
+                        <p class="text-gray-600 mt-2">{{ $beranda->sambutan }}</p>
+                    @else
+                        <p class="text-gray-600 mt-2">Assalamu'alaikum Warahmatullahi Wabarakatuh. Selamat datang di website resmi SMK Negeri 1 Kawali. Website ini kami hadirkan untuk memberikan informasi kegiatan, prestasi, dan perkembangan sekolah.</p>
+                    @endif
 
                     <div class="mt-4">
                         <a href="#" class="btn-primary inline-block px-4 py-2 text-white rounded-full font-semibold hover:bg-blue-700 transition">Baca Selengkapnya</a>

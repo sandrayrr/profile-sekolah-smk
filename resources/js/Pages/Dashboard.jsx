@@ -1,5 +1,7 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
+import { Home } from "lucide-react";
+import { Link } from '@inertiajs/react';
 import { useEffect, useState } from "react";
 import { CalendarDays, Newspaper, Award, Images, ShoppingCart, Package, CreditCard } from "lucide-react";
 

@@ -51,12 +51,10 @@ export default function AuthenticatedLayout({ children }) {
                         Dashboard Utama
                     </div>
 
-                    <div className="px-4">
-                        <div className={itemClass}>
-                            <HomeIcon className="w-5 h-5" />
-                            Dashboard Utama
-                        </div>
-                    </div>
+                    <Link href={route("dashboard")} className={itemClass}>
+                        <HomeIcon className="w-5 h-5" />
+                        Dashboard Utama
+                    </Link>
 
                     {/* Manajemen Konten */}
                     <div className="mt-5">
@@ -64,14 +62,14 @@ export default function AuthenticatedLayout({ children }) {
                             Manajemen Konten
                         </p>
                         <div className="mt-2 ml-4 space-y-1">
+                                <Link href={route('beranda.index')} className={itemClass}>
+                                <HomeIcon className="w-5 h-5" />
+                                Beranda
+                            </Link>
                              <div className={itemClass}>
                                 <UsersIcon className="w-5 h-5" />
                                 Profil
                             </div>
-                            <Link href={route('beranda.index')} className={itemClass}>
-                                <HomeIcon className="w-5 h-5" />
-                                Beranda
-                            </Link>
                             <div className={itemClass}>
                                 <UsersIcon className="w-5 h-5" />
                                 Profil
@@ -182,16 +180,17 @@ export default function AuthenticatedLayout({ children }) {
 
                     {/* Logout */}
                     <div className="mt-8 px-4">
-                        <Link
-                            href={route("logout")}
-                            method="post"
-                            as="button"
-                            className="w-full py-3 text-left text-red-600 font-semibold 
-                            hover:bg-red-100 rounded-lg transition flex items-center gap-3"
-                        >
-                            <ArrowRightOnRectangleIcon className="w-6 h-6" />
-                            Logout
-                        </Link>
+                        <form method="POST" action={route("logout")}>
+                            <input type="hidden" name="_token" value={document.querySelector('meta[name="csrf-token"]').getAttribute('content')} />
+                            <button
+                                type="submit"
+                                className="w-full py-3 text-left text-red-600 font-semibold
+                                hover:bg-red-100 rounded-lg transition flex items-center gap-3"
+                            >
+                                <ArrowRightOnRectangleIcon className="w-6 h-6" />
+                                Logout
+                            </button>
+                        </form>
                     </div>
                 </nav>
             </aside>

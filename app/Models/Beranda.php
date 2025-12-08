@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Beranda extends Model
 {
-    protected $fillable = ['judul'];
+    protected $fillable = ['judul', 'sambutan'];
 }
