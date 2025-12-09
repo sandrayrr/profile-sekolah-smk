@@ -26,8 +26,6 @@ class BerandaController extends Controller
             'judul' => 'required',
             'sambutan' => 'required'
         ]);
-        // Ensure only one sambutan exists - delete all existing and create new
-        Beranda::truncate();
         Beranda::create($request->all());
         return redirect()->route('beranda.index');
     }
