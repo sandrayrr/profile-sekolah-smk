@@ -70,10 +70,7 @@ export default function AuthenticatedLayout({ children }) {
                                 <UsersIcon className="w-5 h-5" />
                                 Profil
                             </div>
-                            <div className={itemClass}>
-                                <UsersIcon className="w-5 h-5" />
-                                Profil
-                            </div>
+                            
                             <div className={itemClass}>
                                 <BuildingOfficeIcon className="w-5 h-5" />
                                 Fasilitas

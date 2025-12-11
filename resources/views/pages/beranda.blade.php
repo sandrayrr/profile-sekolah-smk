@@ -333,7 +333,7 @@ body {
 <section id="jurusan" class="max-w-7xl mx-auto px-6 mt-16">
     <div class="flex items-center justify-between">
         <div class="section-header text-3xl">Program Keahlian</div>
-        <a href="#" class="text-blue-600 font-semibold hover:text-blue-700 transition">Lihat Semua →</a>
+        <a href="jurusan" class="text-blue-600 font-semibold hover:text-blue-700 transition">Lihat Semua →</a>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
@@ -391,7 +391,7 @@ body {
 <section class="max-w-7xl mx-auto px-6 mt-16">
     <div class="flex items-center justify-between">
         <div class="section-header text-3xl">Berita, Artikel & Informasi</div>
-        <a href="#" class="text-blue-600 font-semibold hover:text-blue-700 transition">Lihat Semua →</a>
+        <a href="artikel" class="text-blue-600 font-semibold hover:text-blue-700 tranartiion">Lihat Semua →</a>
     </div>
 
     <div class="grid md:grid-cols-3 gap-8 mt-8">
@@ -418,11 +418,11 @@ body {
 {{-- ============================
       EKSTRAKURIKULER (swiper)
 =============================== --}}
-<section class="py-16 bg-gradient-to-br from-gray-50 to-gray-100">
+<section class="py-16kstra-gradient-to-br from-gray-50 to-gray-100">
     <div class="max-w-7xl mx-auto px-6">
         <div class="flex items-center justify-between mb-8">
             <div class="section-header text-3xl">Ekstrakurikuler</div>
-            <a href="#" class="text-blue-600 font-semibold hover:text-blue-700 transition">Lihat Semua →</a>
+            <a href="ekstrakulikuler" class="text-blue-600 font-semibold hover:text-blue-700 transition">Lihat Semua →</a>
         </div>
 
         <div class="swiper mySwiperEkstrakurikuler">
@@ -457,7 +457,7 @@ body {
     <div class="max-w-7xl mx-auto px-6">
         <div class="flex items-center justify-between mb-8">
             <div class="section-header text-3xl">Fasilitas</div>
-            <a href="#" class="text-blue-600 font-semibold hover:text-blue-700 transition">Lihat Semua →</a>
+            <a href="fasilitas" class="text-blue-600 font-semibold hover:text-blue-700 transition">Lihat Semua →</a>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">

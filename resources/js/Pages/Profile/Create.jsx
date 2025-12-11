@@ -1,50 +1,49 @@
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Link, useForm, router } from '@inertiajs/react';
-import { useState } from 'react';
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import { Link, useForm } from "@inertiajs/react";
+import { useState } from "react";
 
-export default function Edit({ item }) {
-    const { data, setData, put, processing, errors } = useForm({
-        judul: item.judul || '',
-        sambutan: item.sambutan || '',
+export default function Create() {
+    const { data, setData, post, errors } = useForm({
+        judul: "",
+        sambutan: "",
     });
 
     const [open, setOpen] = useState(true);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        // FIX : tambahkan slash /
-        put(`/beranda/${item.id}`, {
-            onSuccess: () => {
-                router.visit('/beranda');
-            }
+        post("/beranda", {
+            onSuccess: () => setOpen(false),
         });
-    };
-
-    const handleCancel = () => {
-        router.visit('/beranda');
     };
 
     return (
         <AuthenticatedLayout>
+
+            {/* BACKDROP */}
             {open && (
                 <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50">
+                    
+                    {/* MODAL */}
                     <div className="bg-white w-full max-w-xl rounded-lg shadow-xl p-6 animate-[fadeIn_.3s]">
-
+                        
+                        {/* HEADER */}
                         <div className="flex justify-between items-center border-b pb-3">
                             <h1 className="text-lg font-semibold">
-                                Edit Sambutan Kepala Sekolah
+                                Tambah Sambutan Kepala Sekolah
                             </h1>
 
                             <button
-                                onClick={handleCancel}
+                                onClick={() => setOpen(false)}
                                 className="text-gray-600 hover:text-red-500 text-xl"
                             >
                                 ×
                             </button>
                         </div>
 
+                        {/* FORM */}
                         <form onSubmit={handleSubmit} className="mt-4">
+
                             <div className="mb-4">
                                 <label className="block text-sm font-medium text-gray-700">
                                     Judul
@@ -81,10 +80,12 @@ export default function Edit({ item }) {
                                 )}
                             </div>
 
+                            {/* ACTION BUTTONS */}
                             <div className="flex justify-end gap-3 mt-6">
+
                                 <button
                                     type="button"
-                                    onClick={handleCancel}
+                                    onClick={() => setOpen(false)}
                                     className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
                                 >
                                     Batal

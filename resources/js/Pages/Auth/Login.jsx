@@ -26,29 +26,30 @@ export default function Login() {
         <>
             <Head title="Login" />
 
-            <div className="min-h-screen flex items-center justify-center bg-white p-6">
+            {/* POPUP OVERLAY */}
+            <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 px-4">
 
-                {/* CARD */}
+                {/* CARD LOGIN — FOTO + FORM */}
                 <div className="
-                    w-full max-w-4xl bg-white 
-                    shadow-2xl rounded-3xl overflow-hidden 
-                    flex border border-gray-200
+                    bg-white w-full max-w-3xl 
+                    shadow-2xl rounded-xl overflow-hidden 
+                    flex border border-gray-200 animate-fadeIn
                 ">
 
-                    {/* LEFT IMAGE */}
-                    <div className="hidden md:block w-1/2 p-4">
+                    {/* LEFT IMAGE (TIDAK DIHAPUS) */}
+                    <div className="hidden md:block w-1/2">
                         <img
                             src="/images/WhatsApp Image 2025-12-04 at 10.45.35.jpeg"
-                            className="w-full h-full object-cover rounded-3xl"
+                            className="w-full h-full object-cover"
                             alt="School"
                         />
                     </div>
 
                     {/* RIGHT FORM */}
-                    <div className="w-full md:w-1/2 p-10 flex flex-col justify-center">
+                    <div className="w-full md:w-1/2 p-8 flex flex-col justify-center">
 
-                        <h2 className="text-center mb-6 text-2xl font-bold text-blue-700">
-                            HELLO, K-ONE!
+                        <h2 className="text-center mb-6 text-2xl font-bold text-blue-700 tracking-wide">
+                            SELAMAT DATANG!
                         </h2>
 
                         <form onSubmit={submit} className="space-y-5">
@@ -61,8 +62,9 @@ export default function Login() {
                                     value={data.email}
                                     onChange={(e) => setData('email', e.target.value)}
                                     className="
-                                        w-full p-3 rounded-xl bg-gray-100 
-                                        focus:ring-2 focus:ring-blue-400 outline-none
+                                        w-full p-3 border border-gray-300 rounded-lg 
+                                        focus:ring-2 focus:ring-blue-500 focus:border-blue-500 
+                                        outline-none
                                     "
                                 />
                                 {errors.email && (
@@ -78,12 +80,13 @@ export default function Login() {
                                     value={data.password}
                                     onChange={(e) => setData('password', e.target.value)}
                                     className="
-                                        w-full p-3 rounded-xl bg-gray-100 
-                                        focus:ring-2 focus:ring-blue-400 outline-none
+                                        w-full p-3 border border-gray-300 rounded-lg 
+                                        focus:ring-2 focus:ring-blue-500 focus:border-blue-500 
+                                        outline-none
                                     "
                                 />
 
-                                {/* Show/Hide */}
+                                {/* Show/Hide Password */}
                                 <button
                                     type="button"
                                     onClick={() => setShowPassword(!showPassword)}
@@ -102,12 +105,12 @@ export default function Login() {
                                 type="submit"
                                 disabled={processing}
                                 className="
-                                    w-full p-3 rounded-xl font-semibold 
+                                    w-full p-3 rounded-lg font-semibold 
                                     bg-blue-600 hover:bg-blue-700 text-white 
-                                    transition-all shadow-md
+                                    transition-all shadow-sm
                                 "
                             >
-                                {processing ? 'antosan sakedap...' : 'Login'}
+                                {processing ? 'antosan sakedap kok...' : 'Login'}
                             </button>
                         </form>
 
@@ -133,8 +136,18 @@ export default function Login() {
 
                     </div>
                 </div>
-
             </div>
+
+            {/* ANIMASI */}
+            <style>{`
+                @keyframes fadeIn {
+                    from { opacity: 0; transform: scale(0.97); }
+                    to { opacity: 1; transform: scale(1); }
+                }
+                .animate-fadeIn {
+                    animation: fadeIn .25s ease-out;
+                }
+            `}</style>
         </>
     );
 }
